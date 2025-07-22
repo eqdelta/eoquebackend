@@ -5,18 +5,7 @@ const express = require('express');
 const cors = require('cors');
 const db = require('./config/db.js');
 
-import cron from 'node-cron';
-import { puxarFeed } from './scripts/puxarFeeds.js';
-
-
 const app = express();
-
-
-cron.schedule('*/30 * * * *', () => {
-  console.log('Atualizando notícias...');
-  puxarFeed();
-});
-
 app.use(cors());
 app.use(express.json());
 
